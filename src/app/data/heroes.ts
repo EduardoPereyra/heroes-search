@@ -1,6 +1,6 @@
-import { Hero } from '../types/Hero';
+// import { Hero } from '../types/Hero';
 
-export const HEROES: Hero[] = [
+export const HEROES = [
   {
     id: 1,
     name: 'Superman',

@@ -1,19 +1,50 @@
 import { Injectable } from '@angular/core';
-import { HEROES } from '../data/heroes';
-import { Observable, scheduled, asyncScheduler, delay } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Hero } from '../types/Hero';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+} from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HeroesService {
-  constructor() {}
+  documentName = 'heroes';
+  dbCollection: AngularFirestoreCollection<unknown>;
 
-  getHeroes(): Observable<Hero[]> {
-    return scheduled([HEROES], asyncScheduler).pipe(delay(1500));
+  constructor(private db: AngularFirestore) {
+    this.dbCollection = this.db.collection(this.documentName);
   }
 
-  editHero(hero: Hero) {}
+  getHeroes(): Observable<Hero[]> {
+    return this.dbCollection.snapshotChanges().pipe(
+      map((changes) =>
+        changes.map((c: any) => ({
+          id: c.payload.doc.id,
+          ...c.payload.doc.data(),
+        }))
+      )
+    );
+  }
 
-  deleteHero() {}
+  addHero(hero: Hero) {
+    this.dbCollection.add({
+      name: hero.name,
+      img: hero.img,
+      superpowers: hero.superpowers,
+    });
+  }
+
+  editHero(hero: Hero) {
+    this.dbCollection.doc(hero.id).update({
+      name: hero.name,
+      img: hero.img,
+      superpowers: hero.superpowers,
+    });
+  }
+
+  deleteHero(hero: Hero) {
+    this.dbCollection.doc(hero.id).delete();
+  }
 }

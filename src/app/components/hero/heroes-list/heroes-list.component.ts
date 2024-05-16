@@ -44,10 +44,11 @@ export class HeroesListComponent implements OnInit {
     private _snackBar: MatSnackBar
   ) {}
 
-  ngOnInit(): void {
-    this.heroesService
-      .getHeroes()
-      .subscribe((heroes) => (this.heroes = heroes));
+  ngOnInit() {
+    this.heroesService.getHeroes().subscribe((heroes) => {
+      this.heroes = heroes;
+      console.log(this.heroes);
+    });
   }
 
   openDialog(heroInfo?: Hero): void {
@@ -63,10 +64,12 @@ export class HeroesListComponent implements OnInit {
             (elem) => elem.id === hero.id
           );
           this.heroes[herEditedIndex] = hero;
+          this.heroesService.editHero(hero);
           this.openSnackBar('Edited successfully');
         } else {
           hero.id = this.heroes.length + 1;
           this.heroes.push(hero);
+          this.heroesService.addHero(hero);
           this.openSnackBar('Created successfully');
         }
       }
@@ -76,6 +79,7 @@ export class HeroesListComponent implements OnInit {
     let index = this.heroes.indexOf(hero);
     if (index !== -1) {
       this.heroes.splice(index, 1);
+      this.heroesService.deleteHero(hero);
       this.openSnackBar('Deleted successfully');
     }
   }

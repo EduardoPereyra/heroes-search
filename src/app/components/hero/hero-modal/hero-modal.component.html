@@ -1,0 +1,46 @@
+<div class="modal-container">
+  <h2 mat-dialog-title>
+    <span *ngIf="editing; else creating">Editing {{ hero.name }}</span
+    ><ng-template #creating><span>New hero</span></ng-template>
+  </h2>
+  <mat-dialog-content>
+    <div>
+      <mat-form-field>
+        <mat-label>Hero's name</mat-label>
+        <input matInput [(ngModel)]="hero.name" />
+      </mat-form-field>
+    </div>
+    <div class="superpowers-container">
+      <ul>
+        <li *ngFor="let superpower of hero.superpowers; let i = index">
+          <button
+            mat-icon-button
+            aria-label="Delete"
+            matTooltip="Delete superpower"
+            (click)="removeSuperpower(i)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+          {{ superpower }}
+        </li>
+      </ul>
+      <div class="superpowers-input-container">
+        <mat-form-field>
+          <mat-label>Hero's superpowers</mat-label>
+          <input matInput [(ngModel)]="superpower" />
+        </mat-form-field>
+        <button mat-stroked-button (click)="addSuperpower()">Add</button>
+      </div>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Image URL</mat-label>
+        <input matInput [(ngModel)]="hero.img" />
+      </mat-form-field>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="hero" cdkFocusInitial>Save</button>
+  </mat-dialog-actions>
+</div>

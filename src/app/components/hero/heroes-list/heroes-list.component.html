@@ -1,0 +1,33 @@
+<div class="heroes-container">
+  <div class="heroes-title-container">
+    <div class="heroes-title">
+      <h1>Heroes</h1>
+      <button
+        mat-fab
+        color="basic"
+        aria-label="Add button"
+        matTooltip="Add new Hero to the list"
+        (click)="openDialog()"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <mat-form-field>
+      <mat-label>Search by name</mat-label>
+      <input matInput [(ngModel)]="searchByName" />
+    </mat-form-field>
+  </div>
+  <div class="heroes-list-container" *ngIf="heroes.length; else elseTemplate">
+    <div *ngFor="let hero of heroes | filterByName : searchByName">
+      <app-hero-card
+        [hero]="hero"
+        (editHero)="openDialog(hero)"
+        (deleteHero)="deleteHero(hero)"
+      />
+    </div>
+  </div>
+
+  <ng-template #elseTemplate>
+    <app-loader />
+  </ng-template>
+</div>

@@ -1,0 +1,28 @@
+.nav-bar {
+  background-color: white;
+  display: flex;
+  align-items: center;
+
+  .logo {
+    margin: 0 20px;
+    font-size: 3em;
+    font-weight: 900;
+    color: #383838;
+  }
+
+  ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 10px;
+    li {
+      padding: 20px 30px;
+      cursor: pointer;
+
+      &:hover {
+        outline: 1px solid black;
+        border-radius: 10px;
+      }
+    }
+  }
+}

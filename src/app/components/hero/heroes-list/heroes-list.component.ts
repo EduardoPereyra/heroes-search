@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { FilterByNamePipe } from '../../../pipes/filter-by-name.pipe';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { SnackbarService } from '../../../services/snackbar.service';
 
 @Component({
   selector: 'app-heroes-list',
@@ -39,8 +40,8 @@ export class HeroesListComponent implements OnInit {
 
   constructor(
     private heroesService: HeroesService,
-    private _snackBar: MatSnackBar,
-    private router: Router
+    private router: Router,
+    private snackbarService: SnackbarService
   ) {}
 
   ngOnInit() {
@@ -63,15 +64,7 @@ export class HeroesListComponent implements OnInit {
     if (index !== -1) {
       this.heroes.splice(index, 1);
       this.heroesService.deleteHero(hero);
-      this.openSnackBar('Deleted successfully');
+      this.snackbarService.openSnackBar('Deleted successfully');
     }
-  }
-
-  openSnackBar(message: string) {
-    this._snackBar.open(message, 'Close', {
-      horizontalPosition: 'end',
-      verticalPosition: 'bottom',
-      duration: 5000,
-    });
   }
 }

@@ -9,6 +9,7 @@ import { Hero } from '../../../types/Hero';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HeroesService } from '../../../services/heroes.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackbarService } from '../../../services/snackbar.service';
 
 @Component({
   selector: 'app-hero-create-edit',
@@ -39,7 +40,7 @@ export class HeroCreateEditComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private heroesService: HeroesService,
-    private _snackBar: MatSnackBar
+    private snackbarService: SnackbarService
   ) {}
 
   ngOnInit(): void {
@@ -72,19 +73,11 @@ export class HeroCreateEditComponent implements OnInit {
   save(): void {
     if (this.editing) {
       this.heroesService.editHero(this.hero);
-      this.openSnackBar('Edited successfully');
+      this.snackbarService.openSnackBar('Edited successfully');
     } else {
       this.heroesService.addHero(this.hero);
-      this.openSnackBar('Created successfully');
+      this.snackbarService.openSnackBar('Created successfully');
     }
     this.router.navigate(['/heroes']);
-  }
-
-  openSnackBar(message: string) {
-    this._snackBar.open(message, 'Close', {
-      horizontalPosition: 'end',
-      verticalPosition: 'bottom',
-      duration: 5000,
-    });
   }
 }

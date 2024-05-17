@@ -11,7 +11,8 @@ export class SnackbarService {
     this._snackBar.open(message, 'Close', {
       horizontalPosition: 'end',
       verticalPosition: 'bottom',
-      duration: 5000,
+      // duration: 5000,
+      panelClass: 'success-dialog',
     });
   }
 }

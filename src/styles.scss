@@ -18,3 +18,10 @@ body {
     color: #d8735b;
   }
 }
+
+.success-dialog {
+  .mat-simple-snackbar-action,
+  .mat-mdc-snack-bar-action {
+    color: #d8735b !important;
+  }
+}

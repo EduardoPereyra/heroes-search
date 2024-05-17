@@ -1,0 +1,81 @@
+<div class="create-edit-container">
+  <div class="heroes-title">
+    <h1>Heroes</h1>
+  </div>
+  <div class="inputs-container">
+    <img
+      mat-card-image
+      [src]="hero.img"
+      alt="Photo of {{ hero.name }}"
+      class="hero-image"
+      (error)="hero.img = './assets/img/no-image.jpg'"
+    />
+    <div class="right-container">
+      <h2 mat-dialog-title>
+        <span *ngIf="editing; else creating">Editing {{ hero.name }}</span
+        ><ng-template #creating><span>New hero</span></ng-template>
+      </h2>
+      <div class="text-inputs-container">
+        <div>
+          <mat-form-field>
+            <mat-label>Hero's name</mat-label>
+            <input matInput [(ngModel)]="hero.name" />
+          </mat-form-field>
+        </div>
+        <div class="superpowers-container">
+          <h2>Superpowers</h2>
+          <ul>
+            <li *ngFor="let superpower of hero.superpowers; let i = index">
+              <button
+                mat-icon-button
+                aria-label="Delete"
+                matTooltip="Delete superpower"
+                (click)="removeSuperpower(i)"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+              {{ superpower }}
+            </li>
+          </ul>
+          <div class="superpowers-input-container">
+            <mat-form-field>
+              <mat-label>Hero's superpowers</mat-label>
+              <input matInput [(ngModel)]="superpower" />
+            </mat-form-field>
+            <button
+              mat-stroked-button
+              (click)="addSuperpower()"
+              class="add-button"
+            >
+              Add
+            </button>
+          </div>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label>Image URL</mat-label>
+            <input matInput [(ngModel)]="hero.img" />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="actions-container">
+        <button
+          mat-stroked-button
+          color="primary"
+          (click)="cancel()"
+          class="cancel-button"
+        >
+          Cancel
+        </button>
+        <button
+          mat-flat-button
+          color="primary"
+          (click)="save()"
+          class="save-button"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,20 +1,30 @@
 <div class="heroes-container">
+  <button
+    mat-fab
+    color="basic"
+    aria-label="Add button"
+    matTooltip="Add new Hero to the list"
+    class="add-hero-button"
+    (click)="openDialog()"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
   <div class="heroes-title-container">
     <div class="heroes-title">
       <h1>Heroes</h1>
-      <button
-        mat-fab
-        color="basic"
-        aria-label="Add button"
-        matTooltip="Add new Hero to the list"
-        (click)="openDialog()"
-      >
-        <mat-icon>add</mat-icon>
-      </button>
     </div>
-    <mat-form-field>
+    <mat-form-field class="search-input">
       <mat-label>Search by name</mat-label>
-      <input matInput [(ngModel)]="searchByName" />
+      <input matInput type="text" [(ngModel)]="searchByName" />
+      <button
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="searchByName = ''"
+        *ngIf="searchByName"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
     </mat-form-field>
   </div>
   <div class="heroes-list-container" *ngIf="heroes.length; else elseTemplate">

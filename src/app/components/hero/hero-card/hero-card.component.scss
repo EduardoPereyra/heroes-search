@@ -1,14 +1,37 @@
 .hero-card {
-  width: 250px;
+  width: 360px;
   height: 100%;
   display: flex;
+  border-radius: 16px;
+  box-shadow: none;
   justify-content: space-between;
+  border: 1px solid #e8e8e8;
+  background-color: #fafafa;
+
+  mat-card-title {
+    font-size: 1.8em;
+  }
+
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  ul {
+    margin-top: 0;
+    padding-left: 20px;
+  }
 
   img {
     width: 100%;
     height: 15vw;
+    padding: 16px;
     min-height: 150px;
     object-fit: cover;
     object-position: top center;
+  }
+
+  .action-buttons-container {
+    display: flex;
+    justify-content: flex-end;
   }
 }

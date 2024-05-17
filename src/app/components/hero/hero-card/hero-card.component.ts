@@ -5,11 +5,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationModalComponent } from '../../shared/confirmation-modal/confirmation-modal.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-hero-card',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, CommonModule],
+  imports: [MatCardModule, MatButtonModule, CommonModule, MatIconModule],
   templateUrl: './hero-card.component.html',
   styleUrl: './hero-card.component.scss',
 })

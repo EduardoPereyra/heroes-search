@@ -1,4 +1,4 @@
-import { Component, OnInit, mergeApplicationConfig } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HeroCardComponent } from '../hero-card/hero-card.component';
 import { Hero } from '../../../types/Hero';
 import { CommonModule } from '@angular/common';
@@ -7,13 +7,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { LoaderComponent } from '../../shared/loader/loader.component';
-import { MatDialog } from '@angular/material/dialog';
-import { HeroModalComponent } from '../hero-modal/hero-modal.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { FilterByNamePipe } from '../../../pipes/filter-by-name.pipe';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-heroes-list',
@@ -40,8 +39,8 @@ export class HeroesListComponent implements OnInit {
 
   constructor(
     private heroesService: HeroesService,
-    public dialog: MatDialog,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -52,29 +51,13 @@ export class HeroesListComponent implements OnInit {
   }
 
   openDialog(heroInfo?: Hero): void {
-    let hero = heroInfo?.name ? Object.assign({}, heroInfo) : undefined;
-    const dialogRef = this.dialog.open(HeroModalComponent, {
-      data: { ...hero },
-    });
-
-    dialogRef.afterClosed().subscribe((hero) => {
-      if (hero && hero.name) {
-        if (hero.id) {
-          let herEditedIndex = this.heroes.findIndex(
-            (elem) => elem.id === hero.id
-          );
-          this.heroes[herEditedIndex] = hero;
-          this.heroesService.editHero(hero);
-          this.openSnackBar('Edited successfully');
-        } else {
-          hero.id = this.heroes.length + 1;
-          this.heroes.push(hero);
-          this.heroesService.addHero(hero);
-          this.openSnackBar('Created successfully');
-        }
-      }
-    });
+    if (heroInfo?.name) {
+      this.router.navigate(['/edit-hero/' + heroInfo?.id]);
+    } else {
+      this.router.navigate(['/create-hero']);
+    }
   }
+
   deleteHero(hero: Hero): void {
     let index = this.heroes.indexOf(hero);
     if (index !== -1) {

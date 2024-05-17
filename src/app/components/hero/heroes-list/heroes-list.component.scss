@@ -4,22 +4,40 @@
   .heroes-title-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    flex-direction: column;
     margin-bottom: 30px;
 
-    .heroes-title {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    h1 {
-      margin: 0;
-    }
-
-    button {
+    .search-input {
+      width: 90%;
       border-radius: 16px;
-      box-shadow: var(--mdc-elevated-card-container-elevation);
+    }
+  }
+
+  .add-hero-button {
+    position: fixed;
+    z-index: 9;
+    right: 5vw;
+    bottom: 5vh;
+    border-radius: 50%;
+    box-shadow: var(--mdc-elevated-card-container-elevation);
+    background-color: #d8735b;
+    color: white;
+
+    & > *[role="img"] {
+      width: 32px;
+      height: 32px;
+      font-size: 32px;
+
+      svg {
+        width: 32px;
+        height: 32px;
+      }
+    }
+
+    .mat-mdc-button-touch-target {
+      width: 32px !important;
+      height: 32px !important;
     }
   }
 
@@ -29,6 +47,5 @@
     justify-content: center;
     width: 100%;
     gap: 40px 20px;
-    transition: 1s ease-in-out;
   }
 }

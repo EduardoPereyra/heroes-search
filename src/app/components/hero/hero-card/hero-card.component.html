@@ -12,8 +12,11 @@
   <mat-card-content>
     <h2>Superpowers</h2>
     <ul>
-      <li *ngFor="let superPower of hero.superpowers">
+      <li *ngFor="let superPower of hero.superpowers | slice : 0 : 3">
         {{ superPower }}
+      </li>
+      <li *ngIf="hero.superpowers.length > 3" class="more-items-list">
+        +{{ hero.superpowers.length - 3 }}
       </li>
     </ul>
   </mat-card-content>

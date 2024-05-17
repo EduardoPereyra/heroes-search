@@ -69,3 +69,18 @@
     }
   }
 }
+
+@media (max-width: 992px) {
+  .inputs-container {
+    flex-direction: column;
+
+    .hero-image {
+      margin: auto;
+      width: 50% !important;
+    }
+
+    .right-container {
+      width: 100% !important;
+    }
+  }
+}

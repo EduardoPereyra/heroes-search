@@ -1,8 +1,8 @@
 mat-dialog-actions {
-  padding: 0 1.2rem 1.5rem;
+  padding: 0 var(--hero-space-5x) var(--hero-space-6x);
   button {
-    border-radius: 50px;
-    margin-right: 12px;
-    padding: 20px 30px;
+    border-radius: var(--hero-button-border-radius);
+    margin-right: var(--hero-space-3x);
+    padding: var(--hero-space-5x) var(--hero-space-7x);
   }
 }

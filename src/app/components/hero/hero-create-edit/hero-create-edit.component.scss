@@ -1,23 +1,23 @@
 .create-edit-container {
-  padding: 30px 50px;
+  padding: var(--hero-space-7x) var(--hero-space-12x);
 
   .inputs-container {
     display: flex;
 
     .hero-image {
       width: 30%;
-      min-height: 150px;
-      max-height: 500px;
+      min-height: 9.375rem;
+      max-height: 31.25rem;
       object-fit: cover;
       object-position: top center;
     }
     .right-container {
       width: 70%;
-      padding: 0 20px;
+      padding: 0 var(--hero-space-5x);
       .text-inputs-container {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: var(--hero-space-5x);
       }
     }
   }
@@ -45,18 +45,18 @@
       display: flex;
       align-items: center;
       .add-button {
-        padding: 20px 30px;
+        padding: var(--hero-space-5x) var(--hero-space-7x);
         margin-left: 5px;
-        border-radius: 50px;
+        border-radius: var(--hero-button-border-radius);
       }
     }
   }
 
   .actions-container {
     button {
-      border-radius: 50px;
+      border-radius: var(--hero-button-border-radius);
       margin-right: 12px;
-      padding: 20px 30px;
+      padding: var(--hero-space-5x) var(--hero-space-7x);
     }
   }
 }

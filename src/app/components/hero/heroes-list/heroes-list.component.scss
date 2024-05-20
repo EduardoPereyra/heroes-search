@@ -1,16 +1,16 @@
 .heroes-container {
-  padding: 30px 50px;
+  padding: var(--hero-space-7x) var(--hero-space-12x);
 
   .heroes-title-container {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-bottom: 30px;
+    margin-bottom: var(--hero-space-7x);
 
     .search-input {
       width: 90%;
-      border-radius: 16px;
+      border-radius: var(--hero-space-4x);
     }
   }
 
@@ -20,22 +20,22 @@
     right: 5vw;
     bottom: 5vh;
     border-radius: 50%;
-    box-shadow: var(--mdc-elevated-card-container-elevation);
+    box-shadow: var(--hero-button-shadow);
 
     & > *[role="img"] {
-      width: 32px;
-      height: 32px;
-      font-size: 32px;
+      width: var(--hero-space-8x);
+      height: var(--hero-space-8x);
+      font-size: var(--hero-space-8x);
 
       svg {
-        width: 32px;
-        height: 32px;
+        width: var(--hero-space-8x);
+        height: var(--hero-space-8x);
       }
     }
 
     .mat-mdc-button-touch-target {
-      width: 32px !important;
-      height: 32px !important;
+      width: var(--hero-space-8x) !important;
+      height: var(--hero-space-8x) !important;
     }
   }
 
@@ -44,6 +44,6 @@
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-    gap: 40px 20px;
+    gap: var(--hero-space-10x) var(--hero-space-5x);
   }
 }

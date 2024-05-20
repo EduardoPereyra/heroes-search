@@ -1,0 +1,38 @@
+:root {
+  --hero-primary-color: #ef6c00;
+  --hero-background-color: #ffffff;
+
+  --hero-border-radius: 12px;
+  --hero-card-background-color: #fafafa;
+  --hero-border-card: 1px solid #e8e8e8;
+  --hero-button-border-radius: 50px;
+  --hero-button-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+
+  /* spacings */
+  --hero-space-base: 0.25rem;
+  --hero-space-1x: var(--hero-space-base);
+  --hero-space-2x: calc(var(--hero-space-base) * 2);
+  --hero-space-3x: calc(var(--hero-space-base) * 3);
+  --hero-space-4x: calc(var(--hero-space-base) * 4);
+  --hero-space-5x: calc(var(--hero-space-base) * 5);
+  --hero-space-6x: calc(var(--hero-space-base) * 6);
+  --hero-space-7x: calc(var(--hero-space-base) * 7);
+  --hero-space-8x: calc(var(--hero-space-base) * 8);
+  --hero-space-10x: calc(var(--hero-space-base) * 10);
+  --hero-space-12x: calc(var(--hero-space-base) * 12);
+  --hero-space-16x: calc(var(--hero-space-base) * 16);
+  --hero-space-24x: calc(var(--hero-space-base) * 24);
+  --hero-space-32x: calc(var(--hero-space-base) * 32);
+
+  /* font sizes */
+  --hero-fs-xx-small: 0.6rem;
+  --hero-fs-x-small: 0.7rem;
+  --hero-fs-small: 0.75rem;
+  --hero-fs-medium: 1rem;
+  --hero-fs-large: 1.25rem;
+  --hero-fs-x-large: 1.5rem;
+  --hero-fs-xx-large: 2rem;
+  --hero-fs-xxx-large: 3rem;
+  --hero-fs-jumbo: 4rem;
+}

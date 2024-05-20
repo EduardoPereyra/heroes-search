@@ -1,24 +1,24 @@
 .hero-card {
-  width: 360px;
+  width: calc(var(--hero-space-10x) * 9);
   height: 100%;
   display: flex;
-  border-radius: 16px;
+  border-radius: var(--hero-border-radius);
   box-shadow: none;
   justify-content: space-between;
-  border: 1px solid #e8e8e8;
-  background-color: #fafafa;
+  border: var(--hero-border-card);
+  background-color: var(--hero-card-background-color);
 
   mat-card-title {
-    font-size: 1.8em;
+    font-size: var(--hero-fs-x-large);
   }
 
   h2 {
-    margin-bottom: 10px;
+    margin-bottom: var(--hero-space-3x);
   }
 
   ul {
     margin-top: 0;
-    padding-left: 20px;
+    padding-left: var(--hero-space-5x);
     text-transform: capitalize;
 
     .more-items-list {
@@ -31,8 +31,8 @@
   img {
     width: 100%;
     height: 15vw;
-    padding: 16px;
-    min-height: 150px;
+    padding: 1rem;
+    min-height: calc(var(--hero-space-10x) * 4);
     object-fit: cover;
     object-position: top center;
   }
@@ -45,6 +45,6 @@
 
 @media (max-width: 768px) {
   .hero-card {
-    width: 260px;
+    width: calc(var(--hero-space-32x) * 2);
   }
 }

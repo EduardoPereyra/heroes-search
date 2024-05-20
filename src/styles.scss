@@ -1,3 +1,5 @@
+$primary-color: #ef6c00;
+
 html,
 body {
   height: 100%;
@@ -15,13 +17,13 @@ body {
     margin: 0;
     font-size: 2.2em;
     font-weight: 900;
-    color: #d8735b;
+    color: $primary-color;
   }
 }
 
 .success-dialog {
   .mat-simple-snackbar-action,
   .mat-mdc-snack-bar-action {
-    color: #d8735b !important;
+    color: $primary-color !important;
   }
 }

@@ -8,7 +8,6 @@ import { MatInputModule } from '@angular/material/input';
 import { Hero } from '../../../../types/Hero';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HeroesService } from '../../../../services/heroes.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackbarService } from '../../../../services/snackbar.service';
 
 @Component({

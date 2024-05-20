@@ -5,11 +5,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { Hero } from '../../../types/Hero';
+import { Hero } from '../../../../types/Hero';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HeroesService } from '../../../services/heroes.service';
+import { HeroesService } from '../../../../services/heroes.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { SnackbarService } from '../../../services/snackbar.service';
+import { SnackbarService } from '../../../../services/snackbar.service';
 
 @Component({
   selector: 'app-hero-create-edit',

@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Hero } from '../../../types/Hero';
+import { Hero } from '../../../../types/Hero';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
-import { ConfirmationModalComponent } from '../../shared/confirmation-modal/confirmation-modal.component';
+import { ConfirmationModalComponent } from '../../../shared/confirmation-modal/confirmation-modal.component';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({

@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroCardComponent } from '../hero-card/hero-card.component';
-import { Hero } from '../../../types/Hero';
+import { Hero } from '../../../../types/Hero';
 import { CommonModule } from '@angular/common';
-import { HeroesService } from '../../../services/heroes.service';
+import { HeroesService } from '../../../../services/heroes.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { LoaderComponent } from '../../shared/loader/loader.component';
+import { LoaderComponent } from '../../../shared/loader/loader.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
-import { FilterByNamePipe } from '../../../pipes/filter-by-name.pipe';
+import { FilterByNamePipe } from '../../../../pipes/filter-by-name.pipe';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { SnackbarService } from '../../../services/snackbar.service';
+import { SnackbarService } from '../../../../services/snackbar.service';
 
 @Component({
   selector: 'app-heroes-list',

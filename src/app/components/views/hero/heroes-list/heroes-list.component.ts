@@ -62,9 +62,15 @@ export class HeroesListComponent implements OnInit {
   deleteHero(hero: Hero): void {
     let index = this.heroes.indexOf(hero);
     if (index !== -1) {
-      this.heroes.splice(index, 1);
-      this.heroesService.deleteHero(hero);
-      this.snackbarService.openSnackBar('Deleted successfully');
+      this.heroesService
+        .deleteHero(hero)
+        .then(() => {
+          this.heroes.splice(index, 1);
+          this.snackbarService.openSnackBar('Deleted successfully');
+        })
+        .catch(() => {
+          this.snackbarService.openSnackBar('Error while deleting');
+        });
     }
   }
 }

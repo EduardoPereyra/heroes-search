@@ -71,6 +71,7 @@
           mat-flat-button
           color="primary"
           (click)="save()"
+          [disabled]="!hero.name"
           class="save-button"
         >
           Save

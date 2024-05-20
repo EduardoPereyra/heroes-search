@@ -62,8 +62,10 @@ export class HeroCreateEditComponent implements OnInit {
   }
 
   addSuperpower(): void {
-    this.hero?.superpowers.push(this.superpower);
-    this.superpower = '';
+    if (this.superpower) {
+      this.hero?.superpowers.push(this.superpower);
+      this.superpower = '';
+    }
   }
 
   cancel(): void {
@@ -71,13 +73,27 @@ export class HeroCreateEditComponent implements OnInit {
   }
 
   save(): void {
-    if (this.editing) {
-      this.heroesService.editHero(this.hero);
-      this.snackbarService.openSnackBar('Edited successfully');
-    } else {
-      this.heroesService.addHero(this.hero);
-      this.snackbarService.openSnackBar('Created successfully');
+    if (this.hero.name) {
+      if (this.editing) {
+        this.heroesService
+          .editHero(this.hero)
+          .then(() => {
+            this.snackbarService.openSnackBar('Edited successfully');
+          })
+          .catch(() => {
+            this.snackbarService.openSnackBar('Error while editing');
+          });
+      } else {
+        this.heroesService
+          .addHero(this.hero)
+          .then(() => {
+            this.snackbarService.openSnackBar('Created successfully');
+          })
+          .catch(() => {
+            this.snackbarService.openSnackBar('Error while creating');
+          });
+      }
+      this.router.navigate(['/heroes']);
     }
-    this.router.navigate(['/heroes']);
   }
 }

@@ -28,23 +28,23 @@ export class HeroesService {
     );
   }
 
-  addHero(hero: Hero) {
-    this.dbCollection.add({
+  addHero(hero: Hero): Promise<any> {
+    return this.dbCollection.add({
       name: hero.name,
       img: hero.img,
       superpowers: hero.superpowers,
     });
   }
 
-  editHero(hero: Hero) {
-    this.dbCollection.doc(hero.id).update({
+  editHero(hero: Hero): Promise<void> {
+    return this.dbCollection.doc(hero.id).update({
       name: hero.name,
       img: hero.img,
       superpowers: hero.superpowers,
     });
   }
 
-  deleteHero(hero: Hero) {
-    this.dbCollection.doc(hero.id).delete();
+  deleteHero(hero: Hero): Promise<void> {
+    return this.dbCollection.doc(hero.id).delete();
   }
 }

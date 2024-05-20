@@ -34,6 +34,7 @@ export class HeroCreateEditComponent implements OnInit {
   };
   heroId: string = '';
   superpower: string = '';
+  heroImage: string = '';
   editing: boolean = false;
 
   constructor(
@@ -51,6 +52,7 @@ export class HeroCreateEditComponent implements OnInit {
         this.editing = true;
         if (heroData) {
           this.hero = heroData;
+          this.heroImage = heroData.img;
         }
       });
     } else {
@@ -74,6 +76,7 @@ export class HeroCreateEditComponent implements OnInit {
 
   save(): void {
     if (this.hero.name) {
+      this.hero.img = this.heroImage;
       if (this.editing) {
         this.heroesService
           .editHero(this.hero)

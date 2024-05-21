@@ -1,8 +1,10 @@
 <div class="modal-container">
-  <h2 mat-dialog-title>{{ data.confirmationText }}</h2>
+  <mat-dialog-title mat-dialog-title>{{
+    data.confirmationText
+  }}</mat-dialog-title>
   <mat-dialog-actions>
     <button
-      mat-stroked-button
+      mat-stroked-buttonz
       color="primary"
       (click)="onNoClick()"
       class="cancel-button"
